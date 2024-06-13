@@ -10,10 +10,27 @@ import SwiftUI
 var stockName = "<placeholder>"
 
 struct ContentView: View {
+    var body: some View {
+        TabView {
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
+            
+            HistoryView()
+                .tabItem {
+                    Image(systemName: "square.stack.3d.up")
+                    Text("History")
+                }
+        }
+    }
+}
+
+struct SearchView: View {
     @State private var stock: String = ""
     
     var body: some View {
-        
         NavigationView {
             VStack {
                 TextField("Enter a Stock", text: $stock)
@@ -46,6 +63,16 @@ struct DetailView: View {
                 .padding()
         }
         .navigationTitle(stockName)
+    }
+}
+
+struct HistoryView: View {
+    var body: some View {
+        VStack {
+            Text("Search History")
+                .font(.largeTitle)
+                .padding()
+        }
     }
 }
 
