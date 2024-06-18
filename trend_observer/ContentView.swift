@@ -10,21 +10,51 @@ import SwiftUI
 var stockName = "<placeholder>"
 
 struct ContentView: View {
+    @StateObject private var viewModel = StockViewModel()
+    @State private var symbol: String = "AAPL" // Default symbol
+        
     var body: some View {
-        TabView {
-            SearchView()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
+        VStack {
+            TextField("Enter stock symbol", text: $symbol)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
             
-            HistoryView()
-                .tabItem {
-                    Image(systemName: "square.stack.3d.up")
-                    Text("History")
-                }
+            Button(action: {
+                viewModel.fetchStock(symbol: symbol)
+            }) {
+                Text("Fetch Stock")
+            }
+            .padding()
+            
+            if let errorMessage = viewModel.errorMessage {
+                Text("\(errorMessage)")
+                    .foregroundColor(.red)
+            } else if let stock = viewModel.stock {
+                Text("\(stock.symbol)")
+                Text("\(stock.name)")
+                Text("\(stock.price)")
+            } else {
+                Text("Enter a stock symbol to fetch data")
+            }
         }
+        .padding()
     }
+    
+//    var body: some View {
+//        TabView {
+//            SearchView()
+//                .tabItem {
+//                    Image(systemName: "magnifyingglass")
+//                    Text("Search")
+//                }
+//            
+//            HistoryView()
+//                .tabItem {
+//                    Image(systemName: "square.stack.3d.up")
+//                    Text("History")
+//                }
+//        }
+//    }
 }
 
 struct SearchView: View {

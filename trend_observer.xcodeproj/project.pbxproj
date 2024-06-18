@@ -14,6 +14,8 @@
 		726CAA7C2C13C114002483C3 /* trend_observerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CAA7B2C13C114002483C3 /* trend_observerTests.swift */; };
 		726CAA862C13C114002483C3 /* trend_observerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CAA852C13C114002483C3 /* trend_observerUITests.swift */; };
 		726CAA882C13C114002483C3 /* trend_observerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CAA872C13C114002483C3 /* trend_observerUITestsLaunchTests.swift */; };
+		72A2D0902C1CB6F60079AA8E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A2D08F2C1CB6F60079AA8E /* Model.swift */; };
+		72A2D0942C1CB7250079AA8E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A2D0932C1CB7250079AA8E /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		726CAA812C13C114002483C3 /* trend_observerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = trend_observerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		726CAA852C13C114002483C3 /* trend_observerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trend_observerUITests.swift; sourceTree = "<group>"; };
 		726CAA872C13C114002483C3 /* trend_observerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trend_observerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		72A2D08F2C1CB6F60079AA8E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		72A2D0932C1CB7250079AA8E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +99,10 @@
 		726CAA682C13C113002483C3 /* trend_observer */ = {
 			isa = PBXGroup;
 			children = (
-				726CAA692C13C113002483C3 /* trend_observerApp.swift */,
+				72A2D08F2C1CB6F60079AA8E /* Model.swift */,
+				72A2D0932C1CB7250079AA8E /* ViewModel.swift */,
 				726CAA6B2C13C113002483C3 /* ContentView.swift */,
+				726CAA692C13C113002483C3 /* trend_observerApp.swift */,
 				726CAA6D2C13C114002483C3 /* Assets.xcassets */,
 				726CAA6F2C13C114002483C3 /* trend_observer.entitlements */,
 				726CAA702C13C114002483C3 /* Preview Content */,
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A2D0902C1CB6F60079AA8E /* Model.swift in Sources */,
 				726CAA6C2C13C113002483C3 /* ContentView.swift in Sources */,
+				72A2D0942C1CB7250079AA8E /* ViewModel.swift in Sources */,
 				726CAA6A2C13C113002483C3 /* trend_observerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
