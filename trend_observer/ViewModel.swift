@@ -43,7 +43,7 @@ class StockViewModel: ObservableObject {
             })
     }
     
-    private  func handleError(error: Error, url: URL) {
+    private func handleError(error: Error, url: URL) {
         // Attempt to fetch the raw data to inspect the failure JSON
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
