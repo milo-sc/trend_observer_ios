@@ -11,7 +11,7 @@ var stockName = "<placeholder>"
 
 struct ContentView: View {
     @StateObject private var viewModel = StockViewModel()
-    @State private var symbol: String = "AAPL" // Default symbol
+    @State private var symbol: String = "AAPL" //Default symbol
     
     var body: some View {
         NavigationView {
@@ -51,21 +51,7 @@ struct ContentView: View {
         }
     }
 }
-//    var body: some View {
-//        TabView {
-//            SearchView()
-//                .tabItem {
-//                    Image(systemName: "magnifyingglass")
-//                    Text("Search")
-//                }
-//            
-//            HistoryView()
-//                .tabItem {
-//                    Image(systemName: "square.stack.3d.up")
-//                    Text("History")
-//                }
-//        }
-//    }
+
 //struct SearchView: View {
 //    @State private var stock: String = ""
 //    
@@ -103,6 +89,8 @@ struct DetailView: View {
             Text("Stock Price History")
                 .font(.largeTitle)
                 .padding()
+            
+            print(symbol)
             
             Button(action: {
                 viewModel.fetchStock(symbol: symbol)
