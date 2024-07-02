@@ -52,34 +52,6 @@ struct ContentView: View {
     }
 }
 
-//struct SearchView: View {
-//    @State private var stock: String = ""
-//    
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                TextField("Enter a Stock", text: $stock)
-//                    .padding()
-//                    .background(Color(.systemGray6))
-//                    .cornerRadius(5.0)
-//                    .padding(.horizontal, 20)
-//                    .padding(.bottom, 20)
-//                
-//                NavigationLink(destination: DetailView()) {
-//                    Text("Check Price")
-//                        .font(.headline)
-//                        .padding()
-//                        .background(Color.black)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(10)
-//                }
-//                .padding()
-//            }
-//            .navigationTitle("Trend Observer")
-//        }
-//    }
-//}
-
 struct DetailView: View {
     var viewModel: StockViewModel
     var symbol: String
@@ -89,8 +61,6 @@ struct DetailView: View {
             Text("Stock Price History")
                 .font(.largeTitle)
                 .padding()
-            
-            print(symbol)
             
             Button(action: {
                 viewModel.fetchStock(symbol: symbol)
