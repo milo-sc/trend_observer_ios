@@ -31,41 +31,20 @@ struct ContentView: View {
     }
 }
 
-//struct DetailView: View {
-//    var viewModel: StockViewModel
-//    var symbol: String
-//    
-//    var body: some View {
-//        VStack {
-//            Text("Stock Price History")
-//                .font(.largeTitle)
-//                .padding()
-//            
-//            Button(action: {
-//                viewModel.fetchStock(symbol: symbol)
-//            }) {
-//                Text("Fetch Stock")
-//            }
-//            .padding()
-//            
-//            if let errorMessage = viewModel.errorMessage {
-//                Text("\(errorMessage)")
-//                    .foregroundColor(.red)
-//            } else if let stock = viewModel.stock {
-//                Text("\(stock.symbol)")
-//                Text("\(stock.name)")
-//                Text("\(stock.price)")
-//            } else {
-//                Text("Enter a stock symbol to fetch data")
-//            }
-//        }
-//        .navigationTitle(stockName)
-//    }
-//}
-
 struct HomeView: View {
+    @State private var username: String = "<enter your username>"
+    @State private var password: String = "<enter your password>"
+    
     var body: some View {
-        Text("Welcome to Trend Observer")
+        VStack {
+            Text("Welcome to Trend Observer")
+            
+            TextField("Enter stock symbol", text: $username)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            TextField("Enter stock symbol", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+        }
     }
 }
 
