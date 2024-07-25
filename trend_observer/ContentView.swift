@@ -22,28 +22,19 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
-            ProfileView()
+            AlertListView()
                 .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
+                    Image(systemName: "square.stack")
+                    Text("Alert List")
                 }
         }
     }
 }
 
 struct HomeView: View {
-    @State private var username: String = "<enter your username>"
-    @State private var password: String = "<enter your password>"
-    
     var body: some View {
         VStack {
             Text("Welcome to Trend Observer")
-            
-            TextField("Enter stock symbol", text: $username)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("Enter stock symbol", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }
 }
@@ -79,7 +70,7 @@ struct SearchView: View {
     }
 }
 
-struct ProfileView: View {
+struct AlertListView: View {
     var body: some View {
         Text("Welcome to Your Profile")
     }
