@@ -70,12 +70,35 @@ struct SearchView: View {
     }
 }
 
+//struct Stock: Identifiable {
+//    let id = UUID()
+//    let name: String
+//    let color: Color
+//}
+
 struct AlertListView: View {
+    let stocks = [
+        Stock(symbol: "AAPL", name: "Apple", price: 111),
+        Stock(symbol: "MSFT", name: "Microsoft", price: 111),
+        Stock(symbol: "NVDA", name: "NVIDIA", price: 111),
+        Stock(symbol: "GOOG", name: "Google", price: 111),
+        Stock(symbol: "AMZN", name: "Amazon", price: 111),
+    ]
+
     var body: some View {
-        Text("Welcome to Your Profile")
+        NavigationView {
+//            List(stocks) { stock in
+//                HStack {
+//                    Circle()
+//                        .frame(width: 20, height: 20)
+//                    stock.name
+//                    stock.price
+//                }
+//            }
+//            .navigationTitle("Stocks")
+        }
     }
 }
-
 
 #Preview {
     ContentView()
