@@ -70,12 +70,6 @@ struct SearchView: View {
     }
 }
 
-//struct Stock: Identifiable {
-//    let id = UUID()
-//    let name: String
-//    let color: Color
-//}
-
 struct AlertListView: View {
     let stocks = [
         Stock(symbol: "AAPL", name: "Apple", price: 111),
@@ -87,15 +81,16 @@ struct AlertListView: View {
 
     var body: some View {
         NavigationView {
-//            List(stocks) { stock in
-//                HStack {
-//                    Circle()
-//                        .frame(width: 20, height: 20)
-//                    stock.name
-//                    stock.price
-//                }
-//            }
-//            .navigationTitle("Stocks")
+            List(stocks) { stock in
+                HStack {
+                    Circle()
+                        .frame(width: 20, height: 20)
+                    Text(stock.symbol)
+                    Text(stock.name)
+//                    Text(stock.price)
+                }
+            }
+            .navigationTitle("Stocks")
         }
     }
 }
