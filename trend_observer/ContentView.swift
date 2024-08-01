@@ -82,16 +82,25 @@ struct AlertListView: View {
     var body: some View {
         NavigationView {
             List(stocks) { stock in
-                HStack {
-                    Circle()
-                        .frame(width: 20, height: 20)
-                    Text(stock.symbol)
-                    Text(stock.name)
-//                    Text(stock.price)
-                }
+                NavigationLink(destination: <#T##() -> View#>, label: <#T##() -> View#>)
+                
+//                HStack {
+//                    Circle()
+//                        .frame(width: 20, height: 20)
+//                    Text(stock.symbol)
+//                    Text(stock.name)
+//                }
             }
             .navigationTitle("Stocks")
         }
+    }
+}
+
+struct DetailView: View {
+    let stock: Stock
+    
+    var body: some View {
+        Text("\(stock.symbol)")
     }
 }
 
