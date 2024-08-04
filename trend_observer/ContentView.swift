@@ -71,11 +71,39 @@ struct SearchView: View {
 }
 
 struct AlertListView: View {
+    let stocks = [
+        Stock(symbol: "AAPL", name: "Apple", price: 111),
+        Stock(symbol: "MSFT", name: "Microsoft", price: 111),
+        Stock(symbol: "NVDA", name: "NVIDIA", price: 111),
+        Stock(symbol: "GOOG", name: "Google", price: 111),
+        Stock(symbol: "AMZN", name: "Amazon", price: 111),
+    ]
+
     var body: some View {
-        Text("Welcome to Your Profile")
+        NavigationView {
+            List(stocks) { stock in
+                NavigationLink {
+                    DetailView(stock: stock)
+                } label: {
+                    Circle()
+                        .frame(width: 20, height: 20)
+                    Text("\(stock.name)")
+                }
+            }
+            .navigationTitle("Stocks")
+        }
     }
 }
 
+struct DetailView: View {
+    let stock: Stock
+    
+    var body: some View {
+        Text("\(stock.symbol)")
+        Text("\(stock.name)")
+        Text("\(stock.price)")
+    }
+}
 
 #Preview {
     ContentView()
