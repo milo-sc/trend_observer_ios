@@ -71,6 +71,7 @@ struct SearchView: View {
 }
 
 struct AlertListView: View {
+    @StateObject private var viewModel = StockViewModel()
     let stocks = [
         Stock(symbol: "AAPL", name: "Apple", price: 111),
         Stock(symbol: "MSFT", name: "Microsoft", price: 111),
@@ -83,7 +84,9 @@ struct AlertListView: View {
         NavigationView {
             List(stocks) { stock in
                 NavigationLink {
-                    DetailView(stock: stock)
+                    viewModel.fetchStock(symbol: stock.name)
+                    DetailView(viewModel: viewModel,
+                               stock: stock)
                 } label: {
                     Circle()
                         .frame(width: 20, height: 20)
@@ -96,12 +99,20 @@ struct AlertListView: View {
 }
 
 struct DetailView: View {
+    let viewModel: StockViewModel
     let stock: Stock
     
     var body: some View {
-        Text("\(stock.symbol)")
-        Text("\(stock.name)")
-        Text("\(stock.price)")
+        if let errorMessage = viewModel.errorMessage {
+            Text("\(errorMessage)")
+                .foregroundColor(.red)
+        } else if let stock = viewModel.stock {
+            Text("\(stock.symbol)")
+            Text("\(stock.name)")
+            Text("\(stock.price)")
+        } else {
+            Text("Enter a stock symbol to fetch data")
+        }
     }
 }
 
