@@ -84,7 +84,6 @@ struct AlertListView: View {
         NavigationView {
             List(stocks) { stock in
                 NavigationLink {
-                    viewModel.fetchStock(symbol: stock.name)
                     DetailView(viewModel: viewModel,
                                stock: stock)
                 } label: {
@@ -103,6 +102,13 @@ struct DetailView: View {
     let stock: Stock
     
     var body: some View {
+        Button(action: {
+            viewModel.fetchStock(symbol: stock.symbol)
+        }) {
+            Text("Fetch Stock")
+        }
+        .padding()
+        
         if let errorMessage = viewModel.errorMessage {
             Text("\(errorMessage)")
                 .foregroundColor(.red)
