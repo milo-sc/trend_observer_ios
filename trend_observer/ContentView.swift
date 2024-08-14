@@ -71,7 +71,6 @@ struct SearchView: View {
 }
 
 struct AlertListView: View {
-    @StateObject private var viewModel = StockViewModel()
     let stocks = [
         Stock(symbol: "AAPL", name: "Apple", price: 111),
         Stock(symbol: "MSFT", name: "Microsoft", price: 111),
@@ -84,8 +83,7 @@ struct AlertListView: View {
         NavigationView {
             List(stocks) { stock in
                 NavigationLink {
-                    DetailView(viewModel: viewModel,
-                               stock: stock)
+                    DetailView(stock: stock)
                 } label: {
                     Circle()
                         .frame(width: 20, height: 20)
@@ -98,7 +96,7 @@ struct AlertListView: View {
 }
 
 struct DetailView: View {
-    let viewModel: StockViewModel
+    @StateObject private var viewModel = StockViewModel()
     let stock: Stock
     
     var body: some View {
