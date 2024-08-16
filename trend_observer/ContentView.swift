@@ -83,9 +83,18 @@ struct AlertListView: View {
     var body: some View {
         NavigationView {
             List(stocks) { stock in
-                NavigationLink {
-                    DetailView(viewModel: viewModel,
-                               stock: stock)
+                NavigationLink () {
+//                    Button(action: {
+//                        viewModel.fetchStock(symbol: stock.symbol)
+//                    }) {
+//                        Text("Fetch Stock")
+//                    }
+//                    .padding()
+                    action: do {
+                        viewModel.fetchStock(symbol: stock.symbol)
+                    }
+                    
+                    DetailView(stock: stock)
                 } label: {
                     Circle()
                         .frame(width: 20, height: 20)
@@ -98,27 +107,24 @@ struct AlertListView: View {
 }
 
 struct DetailView: View {
-    let viewModel: StockViewModel
+//    @StateObject private var viewModel = StockViewModel()
     let stock: Stock
     
     var body: some View {
-        Button(action: {
-            viewModel.fetchStock(symbol: stock.symbol)
-        }) {
-            Text("Fetch Stock")
-        }
-        .padding()
+        Text("\(stock.symbol)")
+        Text("\(stock.name)")
+        Text("\(stock.price)")
         
-        if let errorMessage = viewModel.errorMessage {
-            Text("\(errorMessage)")
-                .foregroundColor(.red)
-        } else if let stock = viewModel.stock {
-            Text("\(stock.symbol)")
-            Text("\(stock.name)")
-            Text("\(stock.price)")
-        } else {
-            Text("Enter a stock symbol to fetch data")
-        }
+//        if let errorMessage = viewModel.errorMessage {
+//            Text("\(errorMessage)")
+//                .foregroundColor(.red)
+//        } else if let stock = viewModel.stock {
+//            Text("\(stock.symbol)")
+//            Text("\(stock.name)")
+//            Text("\(stock.price)")
+//        } else {
+//            Text("Enter a stock symbol to fetch data")
+//        }
     }
 }
 
