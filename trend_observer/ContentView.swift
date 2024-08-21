@@ -90,9 +90,6 @@ struct AlertListView: View {
 //                        Text("Fetch Stock")
 //                    }
 //                    .padding()
-                    action: do {
-                        viewModel.fetchStock(symbol: stock.symbol)
-                    }
                     
                     DetailView(stock: stock)
                 } label: {
