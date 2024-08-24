@@ -12,7 +12,7 @@ var stockName = "<placeholder>"
 struct ContentView: View {
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(username: "user", password: "pass")
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
@@ -32,9 +32,15 @@ struct ContentView: View {
 }
 
 struct HomeView: View {
+    var username: String
+    var password: String
+    
     var body: some View {
         VStack {
             Text("Welcome to Trend Observer")
+            
+            TextField("Username: ", text: $username)
+            TextField("Password: ", text: $password)
         }
     }
 }
@@ -90,9 +96,6 @@ struct AlertListView: View {
 //                        Text("Fetch Stock")
 //                    }
 //                    .padding()
-                    action: do {
-                        viewModel.fetchStock(symbol: stock.symbol)
-                    }
                     
                     DetailView(stock: stock)
                 } label: {
