@@ -40,7 +40,11 @@ struct HomeView: View {
             Text("Welcome to Trend Observer")
             
             TextField("Username ", text: $username)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
             TextField("Password ", text: $password)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
         }
     }
 }
