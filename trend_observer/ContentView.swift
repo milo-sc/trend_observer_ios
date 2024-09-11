@@ -45,6 +45,13 @@ struct HomeView: View {
             TextField("Password ", text: $password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
+            
+            Button(action: {
+                
+            }) {
+                Text("Submit")
+                    .foregroundColor(Color.blue)
+            }
         }
     }
 }
